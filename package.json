@@ -2,11 +2,11 @@
   "name": "url-shortening-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "source": ["src/index.js", "src/index.html"],
   "scripts": {
-    "start": "parcel src/index.html --no-cache --port 3000 --open --out-dir public",
-    "build": "parcel src/index.html --public-url ./dist/",
-    "dev": "parcel src/index.html",
+    "start": "parcel src/index.html --no-cache --port 3000 --open --out-dir dist ",
+    "build": "parcel build src/index.html --out-dir dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -15,7 +15,8 @@
   "dependencies": {
     "normalize.css": "^8.0.1",
     "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react-dom": "^16.13.1",
+    "parcel-bundler": "^1.12.4"
   },
   "devDependencies": {
     "babel-core": "^6.26.3",
@@ -25,8 +26,7 @@
     "eslint-config-prettier": "^6.11.0",
     "eslint-plugin-prettier": "^3.1.4",
     "eslint-plugin-react": "^7.20.6",
-    "eslint-plugin-react-hooks": "^4.1.0",
-    "parcel-bundler": "^1.12.4",
+    "eslint-plugin-react-hooks": "^4.1.2",
     "prettier": "^2.1.1",
     "react-hot-loader": "^4.12.21",
     "sass": "^1.26.10"
