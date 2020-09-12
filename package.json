@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "parcel src/index.html --no-cache --port 3000 --open --out-dir public",
-    "build": "parcel src/index.html --no-cache --no-source-maps --public-url ./",
+    "start": "parcel src/index.html --no-cache --port 3000 --open",
+    "build": "parcel build ./src/index.html --public-url ./dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
