@@ -2,10 +2,11 @@
   "name": "url-shortening-api",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "dist/index.js",
+  "source": ["src/index.js", "src/index.html"],
   "scripts": {
     "start": "parcel src/index.html --no-cache --port 3000 --open",
-    "build": "parcel build src/index.html",
+    "build": "parcel build src/index.html --out-dir public",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
