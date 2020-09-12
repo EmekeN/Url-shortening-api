@@ -5,8 +5,8 @@
   "main": "dist/index.js",
   "source": ["src/index.js", "src/index.html"],
   "scripts": {
-    "start": "parcel src/index.html --no-cache --port 3000 --open",
-    "build": "parcel build src/index.html --out-dir dist --public-url ./dist/",
+    "start": "parcel src/index.html --no-cache --port 3000 --open --out-dir dist ",
+    "build": "parcel build src/index.html --out-dir dist/",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
