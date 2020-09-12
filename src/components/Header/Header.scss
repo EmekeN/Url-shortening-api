@@ -1,0 +1,55 @@
+@use "../../base.scss";
+.Header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 1.5em;
+
+  .menu-toggle {
+    font-size: 1.5em;
+    font-weight: 700;
+    color: base.$gray;
+    background-color: white;
+    position: relative;
+
+    &:focus {
+      outline: solid thin;
+    }
+  }
+
+  .menu {
+    display: flex;
+    flex-direction: column;
+    background-color: base.$dark-violet;
+    position: absolute;
+    text-align: center;
+    left: 0;
+    right: 0;
+    width: 90%;
+    margin: 1rem auto auto auto;
+    border-radius: base.$border-radius-rounded;
+    align-items: center;
+    padding: 2rem 0;
+    z-index: 1;
+
+    .menu-item {
+      color: white;
+      padding: 1rem 0;
+      font-weight: 700;
+    }
+
+    .button-button {
+      width: 12.5rem;
+      padding: 0.7em 2em;
+      max-width: 80%;
+    }
+
+    .divider {
+      width: 80%;
+      margin: .8rem 0;
+      border-bottom-style: solid;
+      border-bottom-width: 0.01em;
+      border-bottom-color: rgba(255, 255, 255, 0.25);
+    }
+  }
+}
