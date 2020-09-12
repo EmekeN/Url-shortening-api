@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "start": "parcel src/index.html --no-cache --port 3000 --open --out-dir public",
-    "build": "parcel src/index.html --no-cache --no-source-maps --nominify --public-url ./",
+    "build": "parcel src/index.html --no-cache --no-source-maps --no-minify --public-url ./",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
