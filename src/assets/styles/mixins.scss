@@ -1,0 +1,14 @@
+@mixin hover-transition {
+    transition: 200ms ease-in;
+  }
+
+@mixin logo-size {
+    // height: 2rem;
+    // width: 0.5rem;
+}
+
+@mixin button($border-radius, $color) {
+    border-radius: $border-radius;
+    padding: 1em 2em;
+    background-color: $color;
+}

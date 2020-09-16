@@ -1,8 +1,13 @@
 import React from "react";
+// @ts-ignore
 import logo from "../../assets/images/logo.svg";
+// @ts-ignore
 import FBLogo from "./../../assets/images/icon-facebook.svg";
+// @ts-ignore
 import TwitterLogo from "./../../assets/images/icon-twitter.svg";
+// @ts-ignore
 import PinterestLogo from "./../../assets/images/icon-pinterest.svg";
+// @ts-ignore
 import IGLogo from "./../../assets/images/icon-instagram.svg";
 import "./Footer.scss";
 

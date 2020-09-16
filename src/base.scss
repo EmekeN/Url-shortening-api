@@ -1,20 +1,6 @@
+@use "./assets/styles/vars.scss";
+@use "./assets/styles/mixins.scss";
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap");
-
-$cyan: hsl(180, 66%, 49%);
-$dark-violet: hsl(257, 27%, 26%);
-$red: hsl(0, 87%, 67%);
-$gray: hsl(0, 0%, 75%);
-$grayish-violet: hsl(257, 7%, 63%);
-$dark-blue: hsl(255, 11%, 22%);
-$very-dark-violet: hsl(260, 8%, 14%);
-
-$border-radius-rounded: 6px;
-$border-radius-curved: 15px;
-$border-radius-circle: 50px;
-
-@mixin hover-transition {
-  transition: 200ms ease-in;
-}
 
 html {
   font-size: 18px;
@@ -30,7 +16,7 @@ html {
 
 a {
   text-decoration: none;
-  @include hover-transition();
+  @include mixins.hover-transition();
 }
 
 a:hover {
@@ -38,20 +24,9 @@ a:hover {
 }
 
 button {
-  @include hover-transition();
+  @include mixins.hover-transition();
   color: white;
   border: 0;
-}
-
-.button-button {
-  border-radius: $border-radius-circle;
-  padding: 1em 2em;
-  background-color: $cyan;
-}
-
-.logo {
-  height: 2rem;
-  width: 6.5rem;
 }
 
 

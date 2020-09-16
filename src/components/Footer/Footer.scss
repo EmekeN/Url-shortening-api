@@ -1,13 +1,15 @@
-@use "../../base.scss";
+@use "../../assets/styles/vars.scss";
+@use "../../assets/styles/mixins.scss";
 
 .Footer {
   display: grid;
-  background-color: base.$very-dark-violet;
+  background-color: vars.$very-dark-violet;
   padding: 1.5rem 0;
 
   .logo {
     margin: auto;
     filter: brightness(100);
+    @include mixins.logo-size();
   }
 
   .list {
@@ -27,7 +29,7 @@
   }
 
   a {
-    color: base.$gray;
+    color: vars.$gray;
     font-size: 0.75rem;
   }
 
