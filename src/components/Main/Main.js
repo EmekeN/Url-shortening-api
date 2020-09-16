@@ -21,7 +21,7 @@ const Main = (props) => {
     
     try {
     //   do form validation
-    //   validator.linkValidation(query);
+      validator.linkValidation(query);
 
       //make post request to create link
       let res = await fetch("https://rel.ink/api/links/", {
@@ -35,11 +35,8 @@ const Main = (props) => {
 
       let data = await res.json();
 
-      let curList = urlList;
-      curList.push({ hashid: data.hashid, url: data.url })
-      //urlList isn't rendering below
-      setUrlList(curList);
-    //   setQuery("");
+      setUrlList([...urlList, {...data}]);
+      setQuery("");
 
     } catch (err) {
       setHasError(err);
@@ -72,6 +69,7 @@ const Main = (props) => {
               value={query}
               onChange={handleSetQuery}
               className="url"
+              required
             />
             {hasError && <p>{hasError}</p>}
             <button className="shorten" onClick={handleAddShortURL}>
