@@ -4,15 +4,18 @@ function Validator() {
   };
 
   /**
-   * @param value: String representing the link
-   * @return void 
+   * @param {String} value: String representing the link
+   * @return void
    * @throws Error message on how input is malformed
    */
   this.linkValidation = (value) => {
-    if (value.indexOf("https://") !== 0 && value.indexOf("http://") !== 0) {
+    if (value.length === 0) {
+       throw "Link cannot be empty";
+    } else if (value.indexOf("https://") !== 0 && value.indexOf("http://") !== 0 ) {
         throw "Link must contain 'http://' or 'https://' ";
-    } else {
-        return ;
+    }
+    else {
+      return;
     }
   };
 }

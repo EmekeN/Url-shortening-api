@@ -17,13 +17,10 @@ const Main = (props) => {
   };
 
   const handleAddShortURL = async (e) => {
-    e.preventDefault();
-    
     try {
-    //   do form validation
+      e.preventDefault();
       validator.linkValidation(query);
 
-      //make post request to create link
       let res = await fetch("https://rel.ink/api/links/", {
         headers: {
           Accept: "application/json",
@@ -35,9 +32,8 @@ const Main = (props) => {
 
       let data = await res.json();
 
-      setUrlList([...urlList, {...data}]);
+      setUrlList([...urlList, { ...data }]);
       setQuery("");
-
     } catch (err) {
       setHasError(err);
     }
@@ -62,23 +58,29 @@ const Main = (props) => {
       </section>
       <section>
         <div className="card">
-          <form>
+          <form onSubmit={handleAddShortURL}>
+            <label className="visually-hidden" htmlFor="link-shorten">Shorten a link here</label>
             <input
               type="text"
               placeholder="Shorten a link here..."
               value={query}
               onChange={handleSetQuery}
               className="url"
+              minLength={1}
+              maxLength={80}
+              name="link-shorten"
+              id="link-shorten"
               required
             />
             {hasError && <p>{hasError}</p>}
-            <button className="shorten" onClick={handleAddShortURL}>
+            <button className="shorten" onClick={handleAddShortURL} type="submit">
               Shorten it!
             </button>
           </form>
         </div>
 
-        {urlList.map((url) => {
+        {urlList &&
+          urlList.map((url) => {
             return (
               <div key={url.hashid} className="card pairs ">
                 <p>{url.url}</p>
@@ -88,6 +90,16 @@ const Main = (props) => {
               </div>
             );
           })}
+      </section>
+
+      <section>
+
+      </section>
+      <section>
+        <div>
+          <h3>Boost your links today</h3>
+          <a></a>
+        </div>
       </section>
     </div>
   );
