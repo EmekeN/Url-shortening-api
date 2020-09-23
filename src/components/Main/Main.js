@@ -48,7 +48,7 @@ const Main = (props) => {
             <h1>More than just shorter links</h1>
             <p>
               Build your brand's recognition and get detailed insights on how
-              your links are performing
+              your links are performing.
             </p>
             <a href="#" className="button-button">
               Get Started
@@ -57,9 +57,11 @@ const Main = (props) => {
         </div>
       </section>
       <section>
-        <div className="card">
+        <div className="control card">
           <form onSubmit={handleAddShortURL}>
-            <label className="visually-hidden" htmlFor="link-shorten">Shorten a link here</label>
+            <label className="visually-hidden" htmlFor="link-shorten">
+              Shorten a link here
+            </label>
             <input
               type="text"
               placeholder="Shorten a link here..."
@@ -72,8 +74,12 @@ const Main = (props) => {
               id="link-shorten"
               required
             />
-            {hasError && <p>{hasError}</p>}
-            <button className="shorten" onClick={handleAddShortURL} type="submit">
+            {hasError && <p className="error">{hasError}</p>}
+            <button
+              className="shorten"
+              onClick={handleAddShortURL}
+              type="submit"
+            >
               Shorten it!
             </button>
           </form>
@@ -92,9 +98,7 @@ const Main = (props) => {
           })}
       </section>
 
-      <section>
-
-      </section>
+      <section></section>
       <section>
         <div>
           <h3>Boost your links today</h3>

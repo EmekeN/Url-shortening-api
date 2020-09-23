@@ -14,8 +14,14 @@ html {
   box-sizing: inherit;
 }
 
+section {
+  display: grid;
+  // place-items: center;
+}
+
 a {
   text-decoration: none;
+  font-weight: 600;
   @include mixins.hover-transition();
 }
 
@@ -27,6 +33,22 @@ button {
   @include mixins.hover-transition();
   color: white;
   border: 0;
+}
+
+h1 {
+  font-weight: 700;
+}
+
+p {
+  font-weight: 600;
+}
+
+ul {
+  list-style-type: none;
+}
+
+section {
+  padding: 1.5rem 1.5rem 0 1.5rem;
 }
 
 .visually-hidden {

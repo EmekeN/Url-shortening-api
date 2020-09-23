@@ -18,10 +18,9 @@ export const useSessionStorage = (key, defaultValue) => {
 
   const setValue = (value) => {
     try {
-      const valueToStore =
-        value instanceof Function ? value(sessionStorageVal) : value;
+      const valueToStore = value instanceof Function ? value(sessionStorageVal) : value;
 
-      //prevent submitting duplicate values?
+      /** @todo prevent submitting duplicate values? */ 
       setSessionStorageVal(valueToStore);
     } catch (err) {
       console.error(err);
