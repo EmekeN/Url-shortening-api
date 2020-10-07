@@ -1,14 +1,15 @@
-@use "../../base.scss";
+@use "../../assets/styles/vars.scss";
+@use "../../assets/styles/mixins.scss";
+
 .Header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-top: 1.5em;
 
   .menu-toggle {
     font-size: 1.5em;
     font-weight: 700;
-    color: base.$gray;
+    color: vars.$gray;
     background-color: white;
     position: relative;
 
@@ -20,14 +21,14 @@
   .menu {
     display: flex;
     flex-direction: column;
-    background-color: base.$dark-violet;
+    background-color: vars.$dark-violet;
     position: absolute;
     text-align: center;
     left: 0;
     right: 0;
     width: 90%;
     margin: 1rem auto auto auto;
-    border-radius: base.$border-radius-rounded;
+    border-radius: vars.$border-radius-rounded;
     align-items: center;
     padding: 2rem 0;
     z-index: 1;
@@ -39,6 +40,7 @@
     }
 
     .button-button {
+      @include mixins.button(vars.$border-radius-curved, vars.$cyan);
       width: 12.5rem;
       padding: 0.7em 2em;
       max-width: 80%;
