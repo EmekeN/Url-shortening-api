@@ -1,9 +1,18 @@
+// @ts-ignore
 import React, { useEffect, useState } from "react";
 import "./Main.scss";
 import Validator from "../../Validation/Validator";
-import illustration from "../../assets/images/illustration-working.svg";
+// @ts-ignore
+import illustration from "./../../assets/images/illustration-working.svg";
+// @ts-ignore
+import brand from "./../../assets/images/icon-brand-recognition.svg";
+// @ts-ignore
+import records from "./../../assets/images/icon-detailed-records.svg";
+// @ts-ignore
+import custom from "./../../assets/images/icon-fully-customizable.svg";
 import { useSessionStorage } from "./../../hooks/useSessionStorage";
 
+// @ts-ignore
 const Main = (props) => {
   const [urlList, setUrlList] = useSessionStorage("urls", []);
   const [query, setQuery] = useState("");
@@ -56,25 +65,27 @@ const Main = (props) => {
           </div>
         </div>
       </section>
-      <section>
+      <section className="link-shorten">
         <div className="control card">
           <form onSubmit={handleAddShortURL}>
-            <label className="visually-hidden" htmlFor="link-shorten">
-              Shorten a link here
-            </label>
-            <input
-              type="text"
-              placeholder="Shorten a link here..."
-              value={query}
-              onChange={handleSetQuery}
-              className="url"
-              minLength={1}
-              maxLength={80}
-              name="link-shorten"
-              id="link-shorten"
-              required
-            />
-            {hasError && <p className="error">{hasError}</p>}
+            <div className="control-input">
+              <label className="visually-hidden" htmlFor="link-shorten">
+                Shorten a link here
+              </label>
+              <input
+                type="text"
+                placeholder="Shorten a link here..."
+                value={query}
+                onChange={handleSetQuery}
+                className="url"
+                minLength={1}
+                maxLength={80}
+                name="link-shorten"
+                id="link-shorten"
+                required
+              />
+              {hasError && <p className="error">{hasError}</p>}
+            </div>
             <button
               className="shorten"
               onClick={handleAddShortURL}
@@ -88,7 +99,7 @@ const Main = (props) => {
         {urlList &&
           urlList.map((url) => {
             return (
-              <div key={url.hashid} className="card pairs ">
+              <div key={url.hashid} className="pairs">
                 <p>{url.url}</p>
                 <div className="divider"></div>
                 <p>https://rel.ink/{url.hashid}</p>
@@ -98,12 +109,54 @@ const Main = (props) => {
           })}
       </section>
 
-      <section></section>
-      <section>
-        <div>
-          <h3>Boost your links today</h3>
-          <a></a>
+      <section className="stats">
+        <div className="stats-grid">
+          <div className="header">
+            <h2>Advanced Statistics</h2>
+            <p>
+              Track how your links are performing across the web with our
+              advanced statistics dashboard.
+            </p>
+          </div>
+
+          <div className="brand-details">
+            <div className="details-card">
+              <img src={brand} alt="Brand Recognition" className="icon" />
+              <h3>Brand Recognition</h3>
+              <p>
+                Boost your brand recognition with each click. Generic links
+                don't mean a thing. Branded links help instil confidence in your
+                content.
+              </p>
+            </div>
+
+            <div className="details-card">
+              <img src={records} alt="Detailed Records" className="icon" />
+              <h3>Detailed Records</h3>
+              <p>
+                Gain insights into who is clicking your links. Knowing when and
+                where people engage with your content helps inform better
+                decisions.
+              </p>
+            </div>
+
+            <div className="details-card">
+              <img src={custom} alt="Fully Customizable" className="icon" />
+              <h3>Fully Customizable</h3>
+              <p>
+                Improve brand awareness and content discoverability through
+                customizable links, supercharging audience engagement.
+              </p>
+            </div>
+          </div>
         </div>
+      </section>
+
+      <section className="upsell">
+        {/* <div className="upsell-contianer"> */}
+        <h2 className="links">Boost your links today</h2>
+        <a className="button-button">Get Started</a>
+        {/* </div> */}
       </section>
     </div>
   );

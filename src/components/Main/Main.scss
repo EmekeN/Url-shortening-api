@@ -2,21 +2,30 @@
 @use "../../assets/styles/mixins.scss";
 
 .Main {
-  overflow-x: hidden;
+  // overflow-x: hidden;
+  width: 100vw;
 
   .above-fold {
-    img {
+    display: grid;
+    grid-template-areas:
+      "hero hero"
+      "info info";
+
+    .hero {
+      grid-area: hero;
       width: 30rem;
-      height: 15rem;
+      height: 20rem;
       object-fit: contain;
-      object-position: left;
+      margin: auto;
     }
 
     .info {
+      grid-area: info;
       text-align: center;
       h1 {
         color: vars.$dark-blue;
         font-size: 1.75rem;
+        font-weight: 700;
       }
 
       p {
@@ -30,7 +39,7 @@
       .button-button {
         @include mixins.button(vars.$border-radius-circle, vars.$cyan);
         color: white;
-        font-size: 0.8rem;
+        font-size: 1rem;
         font-weight: 600;
       }
     }
@@ -40,32 +49,166 @@
     @include mixins.card(vars.$border-radius-rounded, vars.$dark-violet);
   }
 
+  .pairs {
+    @include mixins.card(vars.$border-radius-rounded, white);
+  }
+
   .control {
     background-image: url("./../../assets/images/bg-shorten-mobile.svg");
     background-repeat: no-repeat;
     background-position: top right;
 
     form {
-        padding: 1.25rem 0;
-        input {
-            border: 1px solid vars.$grayish-violet;
-            font-size: 0.8rem;
-            width: 300px;
-            padding: 0.6rem;
+      padding: 1.25rem 0;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
 
+      .control-input {
+        width: 90%;
+        input {
+          border: 1px solid vars.$grayish-violet;
+          border-radius: vars.$border-radius-rounded;
+          font-size: 0.8rem;
+          padding: 0.6rem;
+          width: 100%;
         }
 
         .error {
-            color : red;
-            font-size: .5rem;
+          color: red;
+          font-size: 0.6rem;
         }
+      }
 
-        button {
-            width: 90%;
-            font-weight: 700;
-        }
+      .shorten {
+        border-radius: vars.$border-radius-rounded;
+        background-color: vars.$cyan;
+        font-weight: 700;
+        width: 90%;
+        padding: 0.6em 0;
+      }
+    }
+  }
+
+  .stats {
+    display: grid;
+    background-color: vars.$gray;
+    // align-items: center;
+    // justify-content: center;
+
+    p{
+      color: vars.$grayish-violet;
+      font-size: 0.9rem;
+    }
+
+    .header {
+      text-align: center;
+
+      h2 {
+        color: vars.$dark-violet;
+      }
 
     }
 
+    .brand-details {
+      // margin: auto;
+      .details-card {
+        @include mixins.card(vars.$border-radius-rounded, white);
+        text-align: center;
+        margin: 0 auto 2rem auto;
+        width: 80%;
+        padding: 1rem;
+        position: relative;
+        h3 {
+          color: vars.$dark-violet
+        }
+
+        p {
+          color: vars.$grayish-violet;
+        }
+
+        &::after {
+          content: '';
+          height: 2rem;
+          width: 5px;
+          background-color: vars.$cyan;
+          margin: auto;
+          position: absolute;
+          bottom: -2rem;
+        }
+
+      }
+    }
+  }
+
+  .upsell {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    height: 14rem;
+    background-color: vars.$dark-violet;
+    background-image: url("./../../assets/images/bg-boost-mobile.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: left;
+
+    h2 {
+      color: white;
+    }
+
+    .button-button {
+      @include mixins.button(vars.$border-radius-circle, vars.$cyan);
+      color: white;
+      font-size: 0.8rem;
+      font-weight: 600;
+      margin: 0 auto;
+    }
+  }
+
+  @media screen and (min-width: 750px) {
+    .above-fold {
+      grid-template-areas:
+        "info hero"
+        "info hero";
+      text-align: left;
+
+      .hero {
+      }
+
+      .info {
+        text-align: left;
+      }
+    }
+    .control {
+      background-image: url("./../../assets/images/bg-shorten-desktop.svg");
+      background-repeat: no-repeat;
+      // background-position: top right;
+      background-size: cover;
+      padding: 1rem 1.3rem 0 1.3rem;
+      form {
+        flex-direction: row;
+        align-items: baseline;
+
+        .control-input {
+          margin-right: 1.2rem;
+        }
+
+        .shorten {
+          width: 20%;
+        }
+      }
+    }
+    .pairs {
+      // background-image: url("./../../assets/images/bg-boost-desktop.svg");
+      // background-repeat: no-repeat;
+      // background-position: top right;
+    }
+
+    .upsell {
+      background-image: url("./../../assets/images/bg-boost-desktop.svg");
+    }
   }
 }

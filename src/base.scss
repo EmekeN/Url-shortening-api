@@ -60,6 +60,12 @@ section {
   clip: rect(1px, 1px, 1px, 1px);
 }
 
+@media screen and (min-width: 750px) {
+  section{ 
+    padding: 1.5rem 5rem 0 5rem;
+  }
+}
+
 
 
 
